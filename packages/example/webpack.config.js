@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = () => {
   return {
-    entry: "./src/index.jsx",
+    entry: "./src/index.tsx",
     output: {
       filename: "[name].[contenthash].js",
       path: path.resolve(__dirname, "dist"),
@@ -23,8 +23,15 @@ module.exports = () => {
         },
       },
     },
+    resolve: {
+      extensions: [".ts", ".tsx", ".jsx", ".js"],
+    },
     module: {
       rules: [
+        {
+          test: /\.(j|t)sx?$/i,
+          use: ["babel-loader", "ts-loader"],
+        },
         {
           test: /\.css$/i,
           use: ["style-loader", "css-loader"],
