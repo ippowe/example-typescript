@@ -40,7 +40,7 @@ module.exports = () => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: "Example Typescript",
+        template: "./public/index.html",
       }),
     ],
   };

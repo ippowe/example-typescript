@@ -1,4 +1,8 @@
-import module from "./module";
+import React from "react";
+import ReactDOM from "react-dom";
 
-console.log("hello");
-console.log(module());
+const App: React.FC = () => {
+  return <h1>Hello World</h1>;
+};
+
+ReactDOM.render(<App />, document.getElementById("root"));
