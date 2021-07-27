@@ -1,12 +1,14 @@
 const path = require("path");
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = () => {
   return {
     entry: "./src/index.jsx",
     output: {
-      filename: "bundle.js",
+      filename: "[name].bundle.js",
       path: path.resolve(__dirname, "dist"),
+      clean: true,
     },
     module: {
       rules: [
@@ -16,5 +18,10 @@ module.exports = () => {
         },
       ],
     },
+    plugins: [
+      new HtmlWebpackPlugin({
+        title: "Example Typescript",
+      }),
+    ],
   };
 };
