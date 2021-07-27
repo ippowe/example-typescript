@@ -6,9 +6,22 @@ module.exports = () => {
   return {
     entry: "./src/index.jsx",
     output: {
-      filename: "[name].bundle.js",
+      filename: "[name].[contenthash].js",
       path: path.resolve(__dirname, "dist"),
       clean: true,
+    },
+    optimization: {
+      moduleIds: "deterministic",
+      runtimeChunk: "single",
+      splitChunks: {
+        cacheGroups: {
+          vender: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "vendors",
+            chunks: "all",
+          },
+        },
+      },
     },
     module: {
       rules: [
