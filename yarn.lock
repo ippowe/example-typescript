@@ -3113,6 +3113,8 @@ __metadata:
 "example-typescript@workspace:.":
   version: 0.0.0-use.local
   resolution: "example-typescript@workspace:."
+  dependencies:
+    typescript: ^4.3.5
   languageName: unknown
   linkType: soft
 
