@@ -24,7 +24,7 @@ module.exports = () => {
           test: /\.(j|t)sx?$/i,
           use: [
             {
-              loader: "babel-loader",
+              loader: require.resolve("babel-loader"),
               options: {
                 presets: [
                   "@babel/preset-env",
@@ -34,7 +34,7 @@ module.exports = () => {
               },
             },
             {
-              loader: "ts-loader",
+              loader: require.resolve("ts-loader"),
               options: {
                 configFile: path.resolve(__dirname, "./tsconfig.json"),
               },

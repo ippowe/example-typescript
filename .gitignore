@@ -1,2 +1,12 @@
 node_modules
 dist
+
+# Ingnore yarn related files without zero-installs
+# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
