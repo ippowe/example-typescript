@@ -1,5 +1,6 @@
-const { merge } = require("webpack-merge");
 const webpack = require("webpack");
+const path = require("path");
+const { merge } = require("webpack-merge");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const ReactRefreshTypescript = require("react-refresh-typescript");
 
@@ -18,12 +19,18 @@ module.exports = () => {
             {
               loader: require.resolve("babel-loader"),
               options: {
+                presets: [
+                  "@babel/preset-env",
+                  "@babel/preset-typescript",
+                  "@babel/preset-react",
+                ],
                 plugins: [require.resolve("react-refresh/babel")],
               },
             },
             {
               loader: require.resolve("ts-loader"),
               options: {
+                configFile: path.resolve(__dirname, "./tsconfig.json"),
                 getCustomTransformers: () => ({
                   before: [ReactRefreshTypescript()],
                 }),

@@ -1,3 +1,4 @@
+const path = require("path");
 const { merge } = require("webpack-merge");
 const base = require("./webpack.config")();
 
@@ -21,7 +22,24 @@ module.exports = () => {
       rules: [
         {
           test: /\.(j|t)sx?$/i,
-          use: ["babel-loader", "ts-loader"],
+          use: [
+            {
+              loader: "babel-loader",
+              options: {
+                presets: [
+                  "@babel/preset-env",
+                  "@babel/preset-typescript",
+                  "@babel/preset-react",
+                ],
+              },
+            },
+            {
+              loader: "ts-loader",
+              options: {
+                configFile: path.resolve(__dirname, "./tsconfig.json"),
+              },
+            },
+          ],
           exclude: /node_modules/,
         },
       ],
