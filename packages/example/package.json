@@ -1,5 +1,5 @@
 {
-  "name": "example",
+  "name": "@may-i/example",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
@@ -29,6 +29,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@may-i/components": "workspace:^1.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }
